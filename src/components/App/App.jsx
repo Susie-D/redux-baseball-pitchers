@@ -21,28 +21,25 @@ function App() {
   const handlePitcherSubmit = (event) => {
     event.preventDefault();
     // spread: give me everything in pitcherList, then add this new thing
-    // setPitcherList([...pitcherList, newPitcher]);
-    // setNewPitcher('');
     dispatch({
       type: 'ADD_PITCHER',
       payload: newPitcher,
     });
+    setNewPitcher('');
   };
 
   const handleAddCatcherNameChange = (event) => {
-    // setNewCatcher(event.target.value);
+    setNewCatcher(event.target.value);
   };
 
   // add new catcher to array. this will move to the catcher reducer!
   const handleCatcherSubmit = (event) => {
     event.preventDefault();
-    // spread: give me everything in catcherList, then add this new thing
-    // setCatcherList([...catcherList, newCatcher]);
-    // setNewCatcher('');
     dispatch({
       type: 'ADD_CATCHER',
       payload: newCatcher,
     });
+    setNewCatcher('');
   };
 
   return (
@@ -73,7 +70,7 @@ function App() {
       <form onSubmit={handleCatcherSubmit}>
         <input
           type="text"
-          // value={newCatcher}
+          value={newCatcher}
           onChange={handleAddCatcherNameChange}
           placeholder="New Catcher Name"
         />
